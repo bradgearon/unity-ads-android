@@ -1,6 +1,6 @@
 import rwc from 'random-weighted-choice';
 import _ from 'lodash';
-import interpolate from 'interpolate';
+import interpolate from '../interpolate';
 
 function HomeCtrl($location, $cookies, $scope, $interval,
   Analytics, Culture, Word, Config, Level, Books) {

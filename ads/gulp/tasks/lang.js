@@ -31,6 +31,16 @@ function addLang(options) {
   if(!langConfig.content) {
     langConfig.content = defaultConfig.content;
   }
+  if(!langConfig.title){
+    langConfig.title = defaultConfig.title;
+  }
+
+  if(!langConfig.replace) {
+    langConfig.replace = defaultConfig.replace;
+  }
+  if(!langConfig.remove) {
+    langConfig.remove = defaultConfig.remove;
+  }
 
   _.forEach(fs.readdirSync(wordDir), file => {
     var location = file.split('-');
@@ -59,17 +69,21 @@ function addLang(options) {
     }
 
     var body = $(langConfig.content);
-    var replaced = body.text()
-      .replace(/([0-9-]*[0-9][-†]?)([\w“])/gi, '$1 $2')
-      .trim();
+    // var title = cheerio.load($(langConfig.title).html()).text();
+    var title = $(langConfig.title).first().text();
+    var replaced = body.text();
 
+    replaced = replaced.replace(/([\W]?)(\d+)(.?)/gi, langConfig.replace);
+    replaced = replaced.replace(/\s\s+/g, ' ');
+    replaced = replaced.trim();
     console.log(replaced + '\n\n');
+
     var word = {
       verse: replaced,
-      title: ''
+      title: title
     };
 
-    jsonfile.writeFileSync(wordDir + file + '/' + options.add + '.json',
+    jsonfile.writeFileSync(wordDir + file + '/' + langConfig.version + '.json',
       word, {spaces: 2});
   });
 

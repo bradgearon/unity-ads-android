@@ -1,5 +1,7 @@
 {
   "url":"https://www.biblegateway.com/passage/?version=:version&search=:abbr+:chapter",
-  "content":".passage-content p",
-  "remove": ".publisher-info-bottom, .footnote"
+  "content":".result-text-style-normal p",
+  "title": ".result-text-style-normal h3",
+  "remove": ".publisher-info-bottom, .footnote",
+  "replace": "$1 $2 $3"
 }

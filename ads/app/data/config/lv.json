@@ -2,5 +2,6 @@
   "more":"Uzzināt vairāk...",
   "version":"rt65",
   "url":"https://www.bible.com/bible/488/:abbr.:chapter",
-  "content":".verse"
+  "content":".verse",
+  "replace":"$1 $2 $3"
 }
