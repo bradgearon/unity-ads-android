@@ -1,3 +1,5 @@
 {
-  "url":"https://www.biblegateway.com/passage/?search=:abbr+:chapter&version=:version"
+  "url":"https://www.biblegateway.com/passage/?version=:version&search=:abbr+:chapter",
+  "content":".passage-content p",
+  "remove": ".publisher-info-bottom, .footnote"
 }

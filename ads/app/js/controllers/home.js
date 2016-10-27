@@ -1,5 +1,6 @@
 import rwc from 'random-weighted-choice';
 import _ from 'lodash';
+import interpolate from 'interpolate';
 
 function HomeCtrl($location, $cookies, $scope, $interval,
   Analytics, Culture, Word, Config, Level, Books) {
@@ -137,22 +138,7 @@ function HomeCtrl($location, $cookies, $scope, $interval,
         .handleInvocation(JSON.stringify(launchWeb));
     };
 
-    var interpolate = (string, params) => {
-      var parts = string.split('//');
-      var result = [parts[0] + '//'];
-      _.forEach((parts[1] || '').split(':'), (segment, i) => {
-        if (i === 0) {
-          result.push(segment);
-        } else {
-          var segmentMatch = segment.match(/(\w+)(?:[?*])?(.*)/);
-          var key = segmentMatch[1];
-          result.push(params[key]);
-          result.push(segmentMatch[2] || '');
-          delete params[key];
-        }
-      });
-      return result.join('');
-    };
+
 
     $scope.read = element => onRead(element, 1);
     $scope.$on('read', ($evt) => setRead(vm.element, .5));
