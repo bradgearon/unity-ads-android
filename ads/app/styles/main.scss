@@ -82,6 +82,10 @@ button {
 
 .rtl {
   direction: rtl;
+  &.verse {
+    margin-left: 32px;
+    margin-right: 0px;
+  }
 }
 
 .primary {

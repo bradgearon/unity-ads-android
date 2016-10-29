@@ -2,17 +2,19 @@ import rwc from 'random-weighted-choice';
 import _ from 'lodash';
 import interpolate from '../interpolate';
 
-function HomeCtrl($location, $cookies, $scope, $interval,
+function HomeCtrl($location, $cookies, $scope, $interval, $window,
   Analytics, Culture, Word, Config, Level, Books) {
     'ngInject';
 
     const vm = this;
     $scope.vm = vm;
 
+    var debug = false;
+
     vm.isWebView = window.webviewbridge;
     vm.prefix = '';
     // vm.id = 'Jn-14-1';
-    const lang = 'en';
+    const lang = 'nb';
 
     var setupTimer = () => $interval((i) => {
       vm.timer = 5 - i;
@@ -118,6 +120,10 @@ function HomeCtrl($location, $cookies, $scope, $interval,
           .handleInvocation(JSON.stringify(updateRead));
       }
 
+      if(debug) {
+        return;
+      }
+
       Analytics.trackEvent('word', 'read', element.id, value);
     };
 
@@ -145,24 +151,37 @@ function HomeCtrl($location, $cookies, $scope, $interval,
 
     var setReadUrl = (version) => {
       var location = vm.id.split('-');
-      var book = _.find(vm.books, {abbr: location[0]});
+      var book = null;
+      var offset = 0;
 
-      vm.readUrl = interpolate(vm.config.url, {
+      // loop through old testament and new testament
+      do {
+        book = _.find(vm.books[offset++], {abbr: location[0]});
+      } while(!book);
+
+      if(_.isArray(version)) {
+        version = version[offset - 1];
+      }
+
+      var readParams = {
         abbr: location[0],
         chapter: location[1],
         verse: location[2],
         version: version,
         ord: book.ord
-      });
+      };
+
+      vm.readUrl = interpolate(vm.config.url, readParams);
+      return version;
     };
 
     $scope.$watchGroup(['vm.config.version', 'vm.element'], val => {
         if (!val[0] || !(val[0] && val[1])) return;
 
-        setReadUrl(vm.config.version);
+        var version = setReadUrl(vm.config.version);
 
         vm.word = Word.get({
-            version: vm.config.version,
+            version: version,
             element: vm.id,
         }, () => {
           if(vm.word.url) {
@@ -175,6 +194,11 @@ function HomeCtrl($location, $cookies, $scope, $interval,
         });
 
         vm.image = vm.id;
+
+        if(debug) {
+          return;
+        }
+
         Analytics.trackPage('/word/' + vm.lang + '/' + vm.id);
     });
 
@@ -232,8 +256,12 @@ function HomeCtrl($location, $cookies, $scope, $interval,
 
     $scope.$watch('vm.prefix', val => {
       vm.culture.$promise.then(() => {
-        var detectedLang = navigator.language.split('-')[0];
-        vm.lang = vm.culture[detectedLang] ? detectedLang : lang;
+        vm.lang = lang;
+        var detectedLang = $window.navigator.language.split('-')[0];
+        if(!debug) {
+          console.log("setting vm.lang", "to", vm.culture[detectedLang]);
+          vm.lang = vm.culture[detectedLang] ? detectedLang : vm.lang;
+        }
 
         var params = {
           lang: vm.lang

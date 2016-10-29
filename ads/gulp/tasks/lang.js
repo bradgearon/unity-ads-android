@@ -25,6 +25,7 @@ function addLang(options) {
   var defaultConfig = jsonfile.readFileSync(configDir + 'default.json');
   var books = jsonfile.readFileSync(dataDir + 'books.json');
   var langConfig = jsonfile.readFileSync(configDir + options.add + '.json');
+
   if(!langConfig.url) {
     langConfig.url = defaultConfig.url;
   }
@@ -44,12 +45,24 @@ function addLang(options) {
 
   _.forEach(fs.readdirSync(wordDir), file => {
     var location = file.split('-');
-    var book = _.find(books, {abbr: location[0]});
+    var book = null;
+    var offset = 0;
+    var version = langConfig.version;
+
+    // loop through old testament and new testament
+    do {
+      book = _.find(books[offset++], {abbr: location[0]});
+    } while(!book);
+
+    if(_.isArray(version)) {
+      version = version[offset - 1];
+    }
+
     var data = {
       abbr: location[0],
       chapter: location[1],
       verse: location[2],
-      version: langConfig.version,
+      version: version,
       ord: book.ord
     };
 
@@ -64,12 +77,12 @@ function addLang(options) {
 
     var page = request('get', readUrl).getBody('utf8');
     var $ = cheerio.load(page);
+
     if(langConfig.remove) {
       $(langConfig.remove).remove();
     }
 
     var body = $(langConfig.content);
-    // var title = cheerio.load($(langConfig.title).html()).text();
     var title = $(langConfig.title).first().text();
     var replaced = body.text();
 
@@ -83,7 +96,7 @@ function addLang(options) {
       title: title
     };
 
-    jsonfile.writeFileSync(wordDir + file + '/' + langConfig.version + '.json',
+    jsonfile.writeFileSync(wordDir + file + '/' + version + '.json',
       word, {spaces: 2});
   });
 

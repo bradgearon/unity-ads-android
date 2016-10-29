@@ -8,8 +8,8 @@ android {
     applicationId "com.wds.unity3d.example"
     minSdkVersion 12
     targetSdkVersion 24
-    versionCode = 2015
-    versionName = "2.0.15"
+    versionCode = 2018
+    versionName = "2.0.18"
   }
   buildTypes {
     release {
