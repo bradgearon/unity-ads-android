@@ -27,5 +27,7 @@
   "bg":"cbt",
   "sk":"seb",
   "nb":"dnb1930",
-  "he":["wlc", "hhh"]
+  "he":["wlc", "hhh"],
+  "sv": "sfb15",
+  "pa": "erv-pa"
 }
