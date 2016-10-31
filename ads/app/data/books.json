@@ -2,39 +2,39 @@
   [
     {
       "abbr": "Gen",
-      "ord": "1"
+      "ord": "01"
     },
     {
       "abbr": "Ex",
-      "ord": "2"
+      "ord": "02"
     },
     {
       "abbr": "Lev",
-      "ord": "3"
+      "ord": "03"
     },
     {
       "abbr": "Num",
-      "ord": "4"
+      "ord": "04"
     },
     {
       "abbr": "Deut",
-      "ord": "5"
+      "ord": "05"
     },
     {
       "abbr": "Josh",
-      "ord": "6"
+      "ord": "06"
     },
     {
       "abbr": "Judg",
-      "ord": "7"
+      "ord": "07"
     },
     {
       "abbr": "Ruth",
-      "ord": "8"
+      "ord": "08"
     },
     {
       "abbr": "1Sam",
-      "ord": "9"
+      "ord": "09"
     },
     {
       "abbr": "2Sam",
