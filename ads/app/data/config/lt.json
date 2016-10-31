@@ -1,0 +1,8 @@
+{
+  "more":"Sužinoti daugiau...",
+  "version":"ltb",
+  "url": "https://www.bible.com/bible/321/:abbr.:chapter",
+  "content":".verse",
+  "title":".heading",
+  "replace":"$1 $2 $3"
+}

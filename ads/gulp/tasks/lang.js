@@ -69,10 +69,13 @@ function addLang(options) {
     var esv = jsonfile.readFileSync(wordDir + file + '/esv' + '.json');
 
     var lastVerse = _.last(esv.verse.match(/(\d+)/g));
-    var readUrl = interpolate(langConfig.url, data)
-      + ':' + data.verse + '-' + lastVerse;
-    console.log(readUrl + '\n');
+    var readUrl = interpolate(langConfig.url, _.clone(data));
 
+    if(!langConfig.useIds) {
+      readUrl += ':' + data.verse + '-' + lastVerse;
+    }
+
+    console.log(readUrl + '\n');
     console.log(esv.verse + '\n');
 
     var page = request('get', readUrl).getBody('utf8');
@@ -83,8 +86,42 @@ function addLang(options) {
     }
 
     var body = $(langConfig.content);
+
+    if(langConfig.useIds) {
+      // stop after the last verse (on the next one)
+      var $contents = $(langConfig.content)
+        .children()
+        .contents();
+
+      var inRange = false;
+      var done = false;
+
+      var first = _.toNumber(data.verse);
+      var last = _.toNumber(lastVerse);
+
+      $contents = _.filter($contents, (child) => {
+        if(done) {
+          return false;
+        }
+
+        var id = _.get(child, 'attribs.id');
+
+        if(!id) {
+          return inRange;
+        }
+
+        var verse = _.toNumber(id);
+        done = verse == last + 1;
+
+        inRange = verse >= first && verse <= last;
+        return inRange;
+      });
+
+      body = $($contents);
+    }
+
     var title = $(langConfig.title).first().text();
-    var replaced = body.text();
+    var replaced = body.text().replace(/\n/g, '');
 
     replaced = replaced.replace(/([\W]?)(\d+)(.?)/gi, langConfig.replace);
     replaced = replaced.replace(/\s\s+/g, ' ');
@@ -108,7 +145,6 @@ function buildJson() {
   if(options.add) {
     addLang(options);
   }
-
 }
 
 buildJson();
