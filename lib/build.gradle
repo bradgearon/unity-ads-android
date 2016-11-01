@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 12
         targetSdkVersion 23
-        versionCode = 2020
-        versionName = "2.0.20"
+        versionCode = 2021
+        versionName = "2.0.21"
 
         setProperty("archivesBaseName", "UnityAds")
 

@@ -1,0 +1,9 @@
+{
+  "more":"Сазнајте више...",
+  "version":"sr",
+  "url":"https://www.wordproject.org/bibles/sr/:ord/:chapter.htm#:verse",
+  "content":".textBody",
+  "replace":"$1 $2 $3",
+  "remove": "h3",
+  "useIds": true
+}
