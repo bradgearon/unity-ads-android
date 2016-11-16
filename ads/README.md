@@ -12,13 +12,12 @@ gulp prod
   * example `{ "en": "esv" }`
 1. add language config to app/data/config/{culture code}.json
 
-parameters:
+### values:
 
 1. content: selector for main content elements (rendered using $.text)
 1. title: selector for title element (first rendered using $.text)
 1. remove: selector for elements to remove
 1. replace: replacement for spaces between sentences and verse numbers
-
 
 ````json
 {
