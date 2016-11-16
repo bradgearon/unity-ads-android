@@ -12,16 +12,20 @@ gulp prod
   * example `{ "en": "esv" }`
 1. add language config to app/data/config/{culture code}.json
 
+parameters:
+
+1. content: selector for main content elements (rendered using $.text)
+1. title: selector for title element (first rendered using $.text)
+1. remove: selector for elements to remove
+1. replace: replacement for spaces between sentences and verse numbers
+
+
 ````json
 {
   "url":"https://www.biblegateway.com/passage/?version=:version&search=:abbr+:chapter",
-  // selector for main content elements (rendered using $.text)
   "content":".result-text-style-normal p",
-  // selector for title element (first rendered using $.text)
   "title": ".result-text-style-normal h3",
-  // selector for elements to remove
   "remove": ".publisher-info-bottom, .footnote",
-  // replacement for spaces between sentences and verse numbers
   "replace": "$1 $2 $3"
 }
 ````
