@@ -63,7 +63,8 @@ function addLang(options) {
       chapter: location[1],
       verse: location[2],
       version: version,
-      ord: book.ord
+      ord: book.ord,
+      name: book.name.replace(' ', '-').toLowerCase()
     };
 
     var esv = jsonfile.readFileSync(wordDir + file + '/esv' + '.json');
@@ -105,17 +106,24 @@ function addLang(options) {
         }
 
         var id = _.get(child, 'attribs.id');
-
+        var verseNumber = $(child).text();
+        
         if(!id) {
           return inRange;
         }
 
-        var verse = _.toNumber(id);
+        var verse = _.toNumber(id.replace('v', ''));
         done = verse == last + 1;
 
         inRange = verse >= first && verse <= last;
+        if(langConfig.replace != false) {
+          $(child).text($(child).text() + " ");
+        }
+
         return inRange;
       });
+
+      console.log($contents);
 
       body = $($contents);
     }
@@ -123,7 +131,10 @@ function addLang(options) {
     var title = $(langConfig.title).first().text();
     var replaced = body.text().replace(/\n/g, '');
 
-    replaced = replaced.replace(/([\W]?)(\d+)(.?)/gi, langConfig.replace);
+    if(langConfig.replace) {
+      replaced = replaced.replace(/([\W]?)(\d+)(.?)/gi, langConfig.replace);
+    }
+
     replaced = replaced.replace(/\s\s+/g, ' ');
     replaced = replaced.trim();
     console.log(replaced + '\n\n');

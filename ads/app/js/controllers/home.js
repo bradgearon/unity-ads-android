@@ -168,6 +168,7 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
         chapter: location[1],
         verse: location[2],
         version: version,
+        name: book.name.replace(' ', '-').toLowerCase(),
         ord: book.ord
       };
 

@@ -1,0 +1,9 @@
+{
+  "more":"...بیشتر بدانید",
+  "version":"fa",
+  "url": "https://www.bible.com/bible/118/:abbr.:chapter",
+  "content":".verse",
+  "title":".heading",
+  "replace":"$1 $2 $3",
+  "rtl":true
+}

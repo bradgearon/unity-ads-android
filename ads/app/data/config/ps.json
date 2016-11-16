@@ -1,0 +1,12 @@
+{
+  "more":"...نور زده کړئ",
+  "version":"ps",
+  "url":"http://www.pashtozeray.org/bible/:name/:name-:chapter",
+  "content":".scripture",
+  "title": ".scripture h3.sectiontitle",
+  "replace": false,
+  "remove": "script h1 h2",
+  "useIds": true,
+  "useName": true,
+  "rtl": true
+}

@@ -2,269 +2,335 @@
   [
     {
       "abbr": "Gen",
-      "ord": "01"
+      "ord": "1",
+      "name": "Genesis"
     },
     {
       "abbr": "Ex",
-      "ord": "02"
+      "ord": "2",
+      "name": "Exodus"
     },
     {
       "abbr": "Lev",
-      "ord": "03"
+      "ord": "3",
+      "name": "Leviticus"
     },
     {
       "abbr": "Num",
-      "ord": "04"
+      "ord": "4",
+      "name": "Numbers"
     },
     {
       "abbr": "Deut",
-      "ord": "05"
+      "ord": "5",
+      "name": "Deuteronomy"
     },
     {
       "abbr": "Josh",
-      "ord": "06"
+      "ord": "6",
+      "name": "Joshua"
     },
     {
       "abbr": "Judg",
-      "ord": "07"
+      "ord": "7",
+      "name": "Judges"
     },
     {
       "abbr": "Ruth",
-      "ord": "08"
+      "ord": "8",
+      "name": "Ruth"
     },
     {
       "abbr": "1Sam",
-      "ord": "09"
+      "ord": "9",
+      "name": "1 Samuel"
     },
     {
       "abbr": "2Sam",
-      "ord": "10"
+      "ord": "10",
+      "name": "2 Samuel"
     },
     {
       "abbr": "1Kgs",
-      "ord": "11"
+      "ord": "11",
+      "name": "1 Kings"
     },
     {
       "abbr": "2Kgs",
-      "ord": "12"
+      "ord": "12",
+      "name": "2 Kings"
     },
     {
       "abbr": "1Chr",
-      "ord": "13"
+      "ord": "13",
+      "name": "1 Chronicles"
     },
     {
       "abbr": "2Chr",
-      "ord": "14"
+      "ord": "14",
+      "name": "2 Chronicles"
     },
     {
       "abbr": "Ezra",
-      "ord": "15"
+      "ord": "15",
+      "name": "Ezra"
     },
     {
       "abbr": "Neh",
-      "ord": "16"
+      "ord": "16",
+      "name": "Nehemiah"
     },
     {
       "abbr": "Esth",
-      "ord": "17"
+      "ord": "17",
+      "name": "Esther"
     },
     {
       "abbr": "Job",
-      "ord": "18"
+      "ord": "18",
+      "name": "Job"
     },
     {
       "abbr": "Ps",
-      "ord": "19"
+      "ord": "19",
+      "name": "Psalms"
     },
     {
       "abbr": "Prov",
-      "ord": "20"
+      "ord": "20",
+      "name": "Proverbs"
     },
     {
       "abbr": "Eccl",
-      "ord": "21"
+      "ord": "21",
+      "name": "Ecclesiastes"
     },
     {
       "abbr": "Song",
-      "ord": "22"
+      "ord": "22",
+      "name": "Song of Solomon"
     },
     {
       "abbr": "Isa",
-      "ord": "23"
+      "ord": "23",
+      "name": "Isaiah"
     },
     {
       "abbr": "Jer",
-      "ord": "24"
+      "ord": "24",
+      "name": "Jeremiah"
     },
     {
       "abbr": "Lam",
-      "ord": "25"
+      "ord": "25",
+      "name": "Lamentations"
     },
     {
       "abbr": "Ezek",
-      "ord": "26"
+      "ord": "26",
+      "name": "Ezekiel"
     },
     {
       "abbr": "Dan",
-      "ord": "27"
+      "ord": "27",
+      "name": "Daniel"
     },
     {
       "abbr": "Hos",
-      "ord": "28"
+      "ord": "28",
+      "name": "Hosea"
     },
     {
       "abbr": "Joel",
-      "ord": "29"
+      "ord": "29",
+      "name": "Joel"
     },
     {
       "abbr": "Amos",
-      "ord": "30"
+      "ord": "30",
+      "name": "Amos"
     },
     {
       "abbr": "Obad",
-      "ord": "31"
+      "ord": "31",
+      "name": "Obadiah"
     },
     {
       "abbr": "Jonah",
-      "ord": "32"
+      "ord": "32",
+      "name": "Jonah"
     },
     {
       "abbr": "Mic",
-      "ord": "33"
+      "ord": "33",
+      "name": "Micah"
     },
     {
       "abbr": "Nah",
-      "ord": "34"
+      "ord": "34",
+      "name": "Nahum"
     },
     {
       "abbr": "Hab",
-      "ord": "35"
+      "ord": "35",
+      "name": "Habakkuk"
     },
     {
       "abbr": "Zeph",
-      "ord": "36"
+      "ord": "36",
+      "name": "Zephaniah"
     },
     {
       "abbr": "Hag",
-      "ord": "37"
+      "ord": "37",
+      "name": "Haggai"
     },
     {
       "abbr": "Zech",
-      "ord": "38"
+      "ord": "38",
+      "name": "Zechariah"
     },
     {
       "abbr": "Mal",
-      "ord": "39"
+      "ord": "39",
+      "name": "Malachi"
     }
   ],
   [
     {
       "abbr": "Mat",
-      "ord": "40"
+      "ord": "40",
+      "name": "Matthew"
     },
     {
       "abbr": "Mk",
-      "ord": "41"
+      "ord": "41",
+      "name": "Mark"
     },
     {
       "abbr": "Luk",
-      "ord": "42"
+      "ord": "42",
+      "name": "Luke"
     },
     {
       "abbr": "John",
-      "ord": "43"
+      "ord": "43",
+      "name": "John"
     },
     {
       "abbr": "Acts",
-      "ord": "44"
+      "ord": "44",
+      "name": "Acts"
     },
     {
       "abbr": "Rom",
-      "ord": "45"
+      "ord": "45",
+      "name": "Romans"
     },
     {
       "abbr": "1Cor",
-      "ord": "46"
+      "ord": "46",
+      "name": "1 Corinthians"
     },
     {
       "abbr": "2Cor",
-      "ord": "47"
+      "ord": "47",
+      "name": "2 Corinthians"
     },
     {
       "abbr": "Gal",
-      "ord": "48"
+      "ord": "48",
+      "name": "Galatians"
     },
     {
       "abbr": "Eph",
-      "ord": "49"
+      "ord": "49",
+      "name": "Ephesians"
     },
     {
       "abbr": "Phil",
-      "ord": "50"
+      "ord": "50",
+      "name": "Philippians"
     },
     {
       "abbr": "Col",
-      "ord": "51"
+      "ord": "51",
+      "name": "Colossians"
     },
     {
       "abbr": "1Thess",
-      "ord": "52"
+      "ord": "52",
+      "name": "1 Thessalonians"
     },
     {
       "abbr": "2Thess",
-      "ord": "53"
+      "ord": "53",
+      "name": "2 Thessalonians"
     },
     {
       "abbr": "1Tim",
-      "ord": "54"
+      "ord": "54",
+      "name": "1 Timothy"
     },
     {
       "abbr": "2Tim",
-      "ord": "55"
+      "ord": "55",
+      "name": "2 Timothy"
     },
     {
       "abbr": "Titus",
-      "ord": "56"
+      "ord": "56",
+      "name": "Titus"
     },
     {
       "abbr": "Phlm",
-      "ord": "57"
+      "ord": "57",
+      "name": "Philemon"
     },
     {
       "abbr": "Heb",
-      "ord": "58"
+      "ord": "58",
+      "name": "Hebrews"
     },
     {
       "abbr": "Jas",
-      "ord": "59"
+      "ord": "59",
+      "name": "James"
     },
     {
       "abbr": "1Pet",
-      "ord": "60"
+      "ord": "60",
+      "name": "1 Peter"
     },
     {
       "abbr": "2Pet",
-      "ord": "61"
+      "ord": "61",
+      "name": "2 Peter"
     },
     {
       "abbr": "1Jn",
-      "ord": "62"
+      "ord": "62",
+      "name": "1 John"
     },
     {
       "abbr": "2John",
-      "ord": "63"
+      "ord": "63",
+      "name": "2 John"
     },
     {
       "abbr": "3John",
-      "ord": "64"
+      "ord": "64",
+      "name": "3 John"
     },
     {
       "abbr": "Jude",
-      "ord": "65"
+      "ord": "65",
+      "name": "Jude"
     },
     {
       "abbr": "Rev",
-      "ord": "66"
+      "ord": "66",
+      "name": "Revelation"
     }
   ]
 ]
