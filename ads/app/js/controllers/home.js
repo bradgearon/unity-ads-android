@@ -76,18 +76,6 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
                       .handleCallback(params[2], 'OK', JSON.stringify([]));
 
                   $scope.$apply((scope) => {
-                    scope.close = () => {
-                      var closeAdUnit = [
-                          ['com.unity3d.ads.api.AdUnit', 'close', [], 'onClosed']
-                      ];
-                      window.webviewbridge
-                        .handleInvocation(JSON.stringify(closeAdUnit));
-                      // reset timer
-                      vm.showClose = false;
-                      delete vm.timer;
-                      delete vm.word;
-                    };
-
                     vm.pick();
                     setupTimer();
                   });
@@ -100,6 +88,25 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
       window.webviewbridge
           .handleInvocation(JSON.stringify(loaded));
     }
+
+    $scope.close = () => {
+      // reset timer
+      vm.showClose = false;
+      delete vm.timer;
+      delete vm.word;
+
+      window.location.href += '?action=close';
+
+      if(!window.webviewbridge){
+        return;
+      }
+
+      var closeAdUnit = [
+          ['com.unity3d.ads.api.AdUnit', 'close', [], 'onClosed']
+      ];
+      window.webviewbridge
+        .handleInvocation(JSON.stringify(closeAdUnit));
+    };
 
     var readByWeight = _.reduce(vm.read, (result, value, key) => {
         result[value.weight] = (result[value.weight] || 0) + value.value;
@@ -130,7 +137,9 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
     var onRead = (element, value) => {
       setRead(element, value);
 
-      if(!vm.isWebView) {
+      window.location.href += '?action=readmore&url=' + encodeURI(vm.readUrl);
+
+      if(!window.webviewbridge) {
         return;
       }
 
@@ -242,6 +251,7 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
     });
 
     vm.pick = () => {
+      console.log("picking element");
       if(!vm.weightTable) {
         return;
       }
@@ -259,6 +269,8 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
       vm.culture.$promise.then(() => {
         vm.lang = lang;
         var detectedLang = $window.navigator.language.split('-')[0];
+        console.log('lang: ' + lang + ' detectedLang: ' + detectedLang);
+
         if(!debug) {
           console.log("setting vm.lang", "to", vm.culture[detectedLang]);
           vm.lang = vm.culture[detectedLang] ? detectedLang : vm.lang;
@@ -273,6 +285,7 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
             return;
           }
 
+          console.log("getting config");
           config.url = vm.defaultConfig.url;
         });
 
@@ -289,6 +302,8 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
       vm.defaultConfig = Config.get({ lang: 'default' });
       vm.books = Books.query();
       vm.levels = Level.query();
+
+      vm.prefix = $scope.$root.baseUrl;
     };
 
     if(window.webviewbridge) {
@@ -301,10 +316,13 @@ function HomeCtrl($location, $cookies, $scope, $interval, $window,
       if(!val) {
         return;
       }
+
+      vm.isWebView = true;
+      console.log('baseUrl updated ' + $scope.$root.baseUrl);
       loadDefaultConfig();
     });
 
-    loadDefaultConfig();
+
 }
 
 export default {

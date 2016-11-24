@@ -20,7 +20,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider,
     $httpProvider.interceptors.push(($rootScope) => {
       return {
         request: config => {
-          console.log(config.url + ' ' + $rootScope.baseUrl);
+          console.log(($rootScope.baseUrl || '') + config.url);
           config.url = ($rootScope.baseUrl || '') + config.url;
           return config;
         }
