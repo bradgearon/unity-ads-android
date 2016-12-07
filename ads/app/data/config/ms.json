@@ -1,0 +1,9 @@
+{
+  "more":"Ketahui lebih lanjut...",
+  "version":"bm",
+  "url": "https://www.bible.com/bible/402/:abbr.:chapter",
+  "content":".verse",
+  "title":".heading",
+  "remove":".note.x",
+  "replace":"$1 $2 $3"
+}
