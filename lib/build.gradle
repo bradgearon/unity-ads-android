@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
     com.android.ddmlib.DdmPreferences.setLogLevel("verbose")
     com.android.ddmlib.DdmPreferences.setTimeOut(10 * 60000)
 
@@ -11,9 +11,9 @@ android {
 
     defaultConfig {
         minSdkVersion 12
-        targetSdkVersion 23
-        versionCode = 2025
-        versionName = "2.0.25"
+        targetSdkVersion 25
+        versionCode = 2026
+        versionName = "2.0.26"
 
         setProperty("archivesBaseName", "UnityAds")
 
